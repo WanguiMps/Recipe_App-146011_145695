@@ -1,7 +1,10 @@
 package com.example.a146011_145695.pojo
 
+
+
 data class Meal(
     val dateModified: Any,
+
     val idMeal: String,
     val strArea: String,
     val strCategory: String,

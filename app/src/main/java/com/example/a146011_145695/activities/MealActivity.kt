@@ -25,16 +25,21 @@ class MealActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivityMealBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
         mealMvvm=ViewModelProvider(this)[MealViewModel::class.java ]
         getMealInformationFromIntent()
-
         setInformationInViews()
         loadingCase()
         mealMvvm.getMealDetail(mealId)
         observerMealDetailsLiveData()
         onYoutubeImageClick()
 
+
+
     }
+
+
 
     private fun onYoutubeImageClick() {
         binding.imgYoutube.setOnClickListener{
@@ -48,11 +53,12 @@ class MealActivity : AppCompatActivity() {
             override fun onChanged(t: Meal) {
                 onResponseCase()
                 val meal= t
+
                 binding.tvCategory.text="Category: ${meal!!.strCategory}"
                 binding.tvArea.text="Area: ${meal!!.strArea}"
                 binding.tvInstructionsSteps.text=meal.strInstructions
 
-                youtubeLink=meal.strYoutube
+                youtubeLink=meal.strYoutube.toString()
             }
 
         })

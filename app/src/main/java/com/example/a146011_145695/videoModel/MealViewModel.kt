@@ -11,7 +11,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MealViewModel(): ViewModel() {
+class MealViewModel(
+
+): ViewModel() {
     private var mealDetailsLiveData= MutableLiveData<Meal>()
 
     fun getMealDetail(id:String){
@@ -33,5 +35,7 @@ class MealViewModel(): ViewModel() {
     fun observerMealDetailsLiveData(): LiveData<Meal>{
         return mealDetailsLiveData
     }
+
+
 
 }
